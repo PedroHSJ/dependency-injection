@@ -12,7 +12,12 @@ export class UserController {
   }
 
   getAllUsers(req: Request, res: Response, next: NextFunction) {
-    const response = this.userService.getAllUsers();
-    res.send(response);
+    try{
+
+      const response = this.userService.getAllUsers();
+      res.send(200).json(response);
+    }catch(e){
+      next(e);
+    }
   }
 }
