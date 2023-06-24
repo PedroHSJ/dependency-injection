@@ -15,7 +15,7 @@ export class UserController {
     try{
 
       const response = this.userService.getAllUsers();
-      res.send(200).json(response);
+      res.status(200).send(response);
     }catch(e){
       next(e);
     }
