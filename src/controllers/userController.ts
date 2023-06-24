@@ -11,10 +11,11 @@ export class UserController {
     this.userService = userService;
   }
 
-  getAllUsers(req: Request, res: Response, next: NextFunction) {
+  async getAllUsers(req: Request, res: Response, next: NextFunction) {
     try{
 
-      const response = this.userService.getAllUsers();
+      const response = await this.userService.getAllUsers();
+      console.log(response)
       res.status(200).send(response);
     }catch(e){
       next(e);
